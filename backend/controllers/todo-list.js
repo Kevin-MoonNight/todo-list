@@ -35,6 +35,7 @@ const findAll = (req, res) => {
     
     #swagger.responses[201]
     #swagger.responses[400]
+    #swagger.responses[500]
     #swagger.end
 */
 const create = (req, res) => {
@@ -77,7 +78,7 @@ const create = (req, res) => {
     } 
 
     #swagger.responses[200]
-    #swagger.responses[400]
+    #swagger.responses[500]
     #swagger.end
 */
 const update = (req, res) => {
@@ -108,7 +109,7 @@ const update = (req, res) => {
     } 
 
     #swagger.responses[200]
-    #swagger.responses[400]
+    #swagger.responses[500]
     #swagger.end
 */
 const destroy = (req, res) => {
