@@ -1,5 +1,14 @@
 const { Todo } = require('../models/todo-list');
 
+/*
+    #swagger.start
+    #swagger.path = '/'
+    #swagger.method = 'get'
+    #swagger.description = 'Get all todos.'
+    #swagger.responses[200]
+    #swagger.responses[500]
+    #swagger.end
+*/
 const findAll = (req, res) => {
     Todo.findAll()
         .then(result => {
@@ -9,6 +18,22 @@ const findAll = (req, res) => {
         });
 };
 
+/*
+    #swagger.start
+    #swagger.path = '/'
+    #swagger.method = 'post'
+    #swagger.description = 'Create todo.'
+
+    #swagger.parameters['describe'] = {
+        in: 'body',
+        description: 'Todo description.',
+        type: 'string', 
+    } 
+    
+    #swagger.responses[201]
+    #swagger.responses[400]
+    #swagger.end
+*/
 const create = (req, res) => {
     if (!req.body.describe) {
         res.status(400).send('describe is empty')
@@ -26,6 +51,28 @@ const create = (req, res) => {
         });
 };
 
+/* 
+    #swagger.start
+    #swagger.path = '/{id}'
+    #swagger.method = 'put'
+    #swagger.description = 'Update todo.'
+
+    #swagger.parameters['id'] = {
+        in: 'path',
+        description: 'Todo id.',
+        type: 'string', 
+    } 
+
+    #swagger.parameters['describe'] = {
+        in: 'body',
+        description: 'Todo description.',
+        type: 'string', 
+    } 
+
+    #swagger.responses[200]
+    #swagger.responses[400]
+    #swagger.end
+*/
 const update = (req, res) => {
     const id = req.params.id;
 
@@ -38,6 +85,22 @@ const update = (req, res) => {
     });
 };
 
+/*
+    #swagger.start
+    #swagger.path = '/{id}'
+    #swagger.method = 'delete'
+    #swagger.description = 'Delete todo.'
+
+    #swagger.parameters['id'] = {
+        in: 'path',
+        description: 'Todo id.',
+        type: 'string', 
+    } 
+
+    #swagger.responses[200]
+    #swagger.responses[400]
+    #swagger.end
+*/
 const destroy = (req, res) => {
     const id = req.params.id;
 
