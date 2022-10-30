@@ -32,7 +32,7 @@ services:
       - /home/node/app/node_modules
       - ./backend:/home/node/app
     ports:
-      - "3000:3000"
+      - ${BACKEND_PORT}:${BACKEND_PORT}
     depends_on:
       - db
     tty: true
