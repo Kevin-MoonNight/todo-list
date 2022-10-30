@@ -43,9 +43,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
+      - /home/node/app/node_modules
       - ./frontend:/home/node/app
     ports:
-      - "4000:4000"
+      - "5173:5173"
     tty: true
 
 networks:
