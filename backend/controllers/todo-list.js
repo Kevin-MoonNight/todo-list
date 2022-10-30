@@ -14,7 +14,10 @@ const findAll = (req, res) => {
         .then(result => {
             res.send(result);
         }).catch(error => {
-            res.status(500).send(error);
+            res.status(500).send({
+                message:
+                    error.message || "Get fail!"
+            });
         });
 };
 
@@ -36,7 +39,8 @@ const findAll = (req, res) => {
 */
 const create = (req, res) => {
     if (!req.body.describe) {
-        res.status(400).send('describe is empty')
+        res.status(400).send('describe is empty');
+        return;
     }
 
     const todo = {
@@ -47,7 +51,10 @@ const create = (req, res) => {
         .then(result => {
             res.send(result);
         }).catch(error => {
-            res.status(400).send(error);
+            res.status(500).send({
+                message:
+                    error.message || "Create fail!"
+            });
         });
 };
 
@@ -81,7 +88,10 @@ const update = (req, res) => {
     }).then(result => {
         res.send('updated!');
     }).catch(error => {
-        res.status(400).send(error);
+        res.status(500).send({
+            message:
+                error.message || "Update fail!"
+        });
     });
 };
 
@@ -109,7 +119,10 @@ const destroy = (req, res) => {
     }).then(result => {
         res.send('deleted!');
     }).catch(error => {
-        res.status(400).send(error);
+        res.status(500).send({
+            message:
+                error.message || "Delete fail!"
+        });
     });
 };
 
