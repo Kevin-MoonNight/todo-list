@@ -79,7 +79,7 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 method: 'POST',
-                body: JSON.stringify({ describe: todo.value.describe })
+                body: JSON.stringify({ describe: describe.value })
             }).then(response => {
                 describe.value = ""
                 getTodos()
